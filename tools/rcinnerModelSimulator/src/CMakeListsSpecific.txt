@@ -1,15 +1,30 @@
 # Sources set
-SET ( SPECIFIC_SOURCES
-	src/specificworker.cpp
-	src/specificmonitor.cpp
-	src/pickhandler.cpp
-	src/serversinitiator.cpp
-	src/omnirobotserver.cpp
-	src/differentialrobotserver.cpp
-	src/displayserver.cpp
-	src/rgbdserver.cpp
-	src/laserserver.cpp
-	src/touchsensorserver.cpp
-	src/imuserver.cpp
-	src/jointmotorserver.cpp
+SET( SPECIFIC_SOURCES
+	specificworker.cpp
+	specificmonitor.cpp
+	pickhandler.cpp
+	serversinitiator.cpp
+	omnirobotserver.cpp
+	differentialrobotserver.cpp
+	displayserver.cpp
+	rgbdserver.cpp
+	laserserver.cpp
+	touchsensorserver.cpp
+	imuserver.cpp
+	jointmotorserver.cpp
 )
+
+# Headers set
+LIST ( APPEND HEADERS
+	specificworker.h
+	specificmonitor.h
+)
+
+#add_definitions(-g  -std=gnu++17 -pedantic-errors)
+SET(CMAKE_CXX_FLAGS " -std=c++17 -O3 -pthread ")
+SET(LIBS ${LIBS} -lpthread -lboost_system )
+
+# FCL
+if (FCL_SUPPORT)
+	INCLUDE_DIRECTORIES( /usr/local/include ${CMAKE_SOURCE_DIR}/libs/innermodel/include ${CMAKE_SOURCE_DIR}/libs/qmat/include ${CMAKE_SOURCE_DIR}/libs/osgviewer/include $ )
+endif (FCL_SUPPORT)

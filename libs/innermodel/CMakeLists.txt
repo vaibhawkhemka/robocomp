@@ -5,7 +5,7 @@ set(LIB_DESC "RoboComp InnerModel library")
 
 find_package(Qt5 COMPONENTS Core Gui REQUIRED)
 
-add_library(innermodel SHARED)
+add_library(innermodel)
 target_sources(innermodel
 		PRIVATE innermodel.cpp
 		innermodelreader.cpp
@@ -26,7 +26,8 @@ target_sources(innermodel
 		innermodelpointcloud.cpp
 		innermodelmesh.cpp
 		innermodeltouchsensor.cpp
-		innermodeldisplay.cpp)
+		innermodeldisplay.cpp
+		PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/innermodel/innermodel.h)
 target_link_libraries(innermodel
 		PUBLIC Qt5::Core Qt5::Gui
 		PUBLIC qmat

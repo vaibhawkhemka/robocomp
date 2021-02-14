@@ -22,7 +22,10 @@ target_sources(qmat
         quaternion.cpp
         PUBLIC  ${CMAKE_CURRENT_SOURCE_DIR}/include/qmat/QMatAll)
 target_link_libraries(qmat
-        PUBLIC Qt5::Core)
+        PUBLIC
+        Qt5::Core
+        gsl
+        )
 target_include_directories(qmat
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/)
 

@@ -28,7 +28,9 @@ add_library(dsr_api SHARED
 
 
 target_link_libraries(dsr_api  Qt5::Core fastcdr fastrtps osgDB OpenThreads Eigen3::Eigen )
-target_include_directories(dsr_api PRIVATE $ENV{ROBOCOMP}/classes/ $ENV{ROBOCOMP}/include/ )
+target_include_directories(dsr_api
+        PRIVATE $ENV{ROBOCOMP}/classes/ $ENV{ROBOCOMP}/include/
+        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 
 set_target_properties(dsr_api PROPERTIES

@@ -10,6 +10,9 @@ target_sources(osgviewer
 		getworldcoorofnode.cpp
 		osgview.cpp
 		viewerqt.cpp
+		PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/osgviewer/osgview.h
+		PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/osgviewer/viewerqt.h
+		PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include/osgviewer/adapterwidget.h
 		)
 target_link_libraries(osgviewer
 		PUBLIC Qt5::Gui
