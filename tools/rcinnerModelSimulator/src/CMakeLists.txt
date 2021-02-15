@@ -97,7 +97,7 @@ target_sources(rcis
 		${CMAKE_SOURCE_DIR}/classes/qlog/qlog.cpp
 		${MOC_SOURCES} ${RC_SOURCES} ${UI_HEADERS}
 		)
-target_link_libraries( rcis PRIVATE Robocomp::innermodel  Robocomp::qmat Robocomp::osgviewer fcl glut OpenThreads osgGA osgDB osgUtil osgText ${LIBS} ${STATIC_LIBS} ${QT_LIBRARIES} -lboost_system -lboost_thread ${Ice_LIBRARIES})
+target_link_libraries( rcis PRIVATE Robocomp::innermodel  Robocomp::qmat Robocomp::osgviewer glut OpenThreads osgGA osgDB osgUtil osgText ${LIBS} ${STATIC_LIBS} ${QT_LIBRARIES} -lboost_system -lboost_thread ${Ice_LIBRARIES})
 target_include_directories(rcis PUBLIC
 		${PYTHON_INCLUDE_DIRS}
 		${Boost_INCLUDE_DIRS}
