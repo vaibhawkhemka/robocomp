@@ -36,7 +36,6 @@ SET(LIBS -L${CMAKE_BUILD_DIR} ${LIBS} )
 
 
 # RoboComp
-message(WARNING "SOURCES BEFORE ${SOURCES}")
 INCLUDE( ${CMAKE_SOURCE_DIR}/cmake/robocompLocal.cmake )
 ROBOCOMP_INITIALIZE( ${CMAKE_SOURCE_DIR}/ )
 ROBOCOMP_IDSL_TO_ICE( Camera CommonBehavior CommonHead DifferentialRobot OmniRobot IMU InnerModelManager JointMotor Laser RGBD TouchSensor RCISMousePicker GenericBase Display)
@@ -73,8 +72,6 @@ endif (PYTHON_BINDINGS_SUPPORT)
 # Specify construction and link process
 #SET (EXECUTABLE_OUTPUT_PATH ../bin)
 add_executable( rcis  )
-message(WARNING "SOURCES ${SOURCES}")
-message(WARNING "ICES_SOURCES ${ICES_SOURCES}")
 target_sources(rcis
 		PRIVATE
 		${SPECIFIC_SOURCES}
@@ -97,7 +94,7 @@ target_sources(rcis
 		${CMAKE_SOURCE_DIR}/classes/qlog/qlog.cpp
 		${MOC_SOURCES} ${RC_SOURCES} ${UI_HEADERS}
 		)
-target_link_libraries( rcis PRIVATE Robocomp::innermodel  Robocomp::qmat Robocomp::osgviewer glut OpenThreads osgGA osgDB osgUtil osgText ${LIBS} ${STATIC_LIBS} ${QT_LIBRARIES} -lboost_system -lboost_thread ${Ice_LIBRARIES})
+target_link_libraries( rcis PRIVATE Robocomp::innermodel Robocomp::qmat Robocomp::osgviewer glut OpenThreads osgGA osgDB osgUtil osgText ${LIBS} ${STATIC_LIBS} ${QT_LIBRARIES} -lboost_system -lboost_thread ${Ice_LIBRARIES})
 target_include_directories(rcis PUBLIC
 		${PYTHON_INCLUDE_DIRS}
 		${Boost_INCLUDE_DIRS}

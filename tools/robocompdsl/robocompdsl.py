@@ -12,8 +12,7 @@ import pyparsing
 
 from termcolor import colored
 
-sys.path.append("/opt/robocomp/python")
-sys.path.append('/opt/robocomp/share/robocompdsl/')
+sys.path.append('/opt/robocomp/python/robocompdsl/')
 import rcExceptions
 from filesgenerator import FilesGenerator
 import robocompdslutils
